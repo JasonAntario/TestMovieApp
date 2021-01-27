@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="AppTheme" parent="Theme.MaterialComponents.Light.NoActionBar">
+        <item name="colorAccent">#E53935</item>
+
+
+    </style>
+    <style name="margins">
+        <item name="android:layout_margin">20dp</item>
+    </style>
+
+    <style name="marginsStartEnd">
+        <item name="android:layout_marginStart">20dp</item>
+        <item name="android:layout_marginEnd">20dp</item>
+    </style>
+
+    <style name="MovieRating" parent="Widget.AppCompat.RatingBar.Small">
+        <item name="android:layout_marginStart">5dp</item>
+        <item name="android:layout_marginEnd">5dp</item>
+        <item name="android:layout_marginTop">10dp</item>
+    </style>
+</resources>
