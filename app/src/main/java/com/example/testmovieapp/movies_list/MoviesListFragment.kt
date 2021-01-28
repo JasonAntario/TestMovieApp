@@ -1,4 +1,4 @@
-package com.example.testmovieapp.movies
+package com.example.testmovieapp.movies_list
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -10,12 +10,11 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testmovieapp.MainActivity
-import com.example.testmovieapp.MovieViewModel
+import com.example.testmovieapp.MovieDetailsViewModel
 import com.example.testmovieapp.R
 
 class MoviesListFragment : Fragment() {
 
-    private val viewModel by lazy { ViewModelProvider(activity as MainActivity)[MovieViewModel::class.java] }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         view.findViewById<TextView>(R.id.pageTitle).text = "Popular"

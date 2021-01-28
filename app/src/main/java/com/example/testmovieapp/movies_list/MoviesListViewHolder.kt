@@ -1,14 +1,13 @@
-package com.example.testmovieapp.movies
+package com.example.testmovieapp.movies_list
 
 import android.view.View
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testmovieapp.R
-import com.example.testmovieapp.data.pojo.MovieInfo
+import com.example.testmovieapp.data.pojo.MovieDetails
 
 class MoviesListViewHolder (itemView: View): RecyclerView.ViewHolder(itemView) {
 
-    fun onBind(movieInfo: MovieInfo) {
-        itemView.findViewById<TextView>(R.id.movieTitle).text = movieInfo.title
+    fun onBind(movieInfo: MovieDetails) {
     }
 }

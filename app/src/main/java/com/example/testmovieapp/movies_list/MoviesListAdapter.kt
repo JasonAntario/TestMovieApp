@@ -1,13 +1,13 @@
-package com.example.testmovieapp.movies
+package com.example.testmovieapp.movies_list
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
 import com.example.testmovieapp.R
-import com.example.testmovieapp.data.pojo.MovieInfo
+import com.example.testmovieapp.data.pojo.MovieDetails
 
-class MoviesListAdapter(private var popularMovieInfoList: List<MovieInfo>) : RecyclerView.Adapter<MoviesListViewHolder>() {
+class MoviesListAdapter(private var popularMovieInfoList: List<MovieDetails>) : RecyclerView.Adapter<MoviesListViewHolder>() {
 
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): MoviesListViewHolder {

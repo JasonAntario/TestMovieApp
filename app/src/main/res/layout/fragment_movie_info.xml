@@ -34,11 +34,6 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/infoGenre">
-
-            <com.google.android.material.chip.Chip
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="Test Chip"/>
         </com.google.android.material.chip.ChipGroup>
 
         <LinearLayout
@@ -48,6 +43,7 @@
             android:gravity="center_vertical"
             android:orientation="horizontal">
             <RatingBar
+                android:id="@+id/infoRating"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:numStars="10"
@@ -56,6 +52,7 @@
                 style="@style/Widget.AppCompat.RatingBar.Small"/>
 
             <TextView
+                android:id="@+id/infoReleaseDate"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/release_date_placeholder"
@@ -69,7 +66,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
-            android:text="Description Placeholder"
+            android:text="@string/description_placeholder"
             android:textSize="20sp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

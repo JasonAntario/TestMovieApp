@@ -6,7 +6,7 @@ import retrofit2.http.GET
 import retrofit2.http.Path
 import retrofit2.http.Query
 
-interface TmdbEndpoints {
+interface ITmdbApi {
 
     @GET("movie/popular")
     fun getPopularMovies(@Query("page") pageNumber: Int): Single<MovieDetails>

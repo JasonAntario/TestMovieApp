@@ -2,4 +2,5 @@
     <string name="app_name">TestMovieApp</string>
     <string name="release_date_placeholder">Release Date</string>
     <string name="title_placeholder">Title Placeholder</string>
+    <string name="description_placeholder">Description Placeholder</string>
 </resources>

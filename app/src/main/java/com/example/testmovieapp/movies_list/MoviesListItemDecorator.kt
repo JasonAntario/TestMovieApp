@@ -1,8 +1,7 @@
-package com.example.testmovieapp.movies
+package com.example.testmovieapp.movies_list
 
 import android.graphics.Rect
 import android.view.View
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
 
 class MoviesListItemDecorator(val spacing: Int, val spanCount: Int, val includeEdge: Boolean) : RecyclerView.ItemDecoration() {

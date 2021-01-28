@@ -1,16 +1,26 @@
 package com.example.testmovieapp
 
 import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import com.example.testmovieapp.data.pojo.MovieInfo
+import com.example.testmovieapp.data.pojo.MovieDetails
+import com.example.testmovieapp.data.repository.NetworkState
+import com.example.testmovieapp.movie_details.MovieDetailsRepository
+import io.reactivex.rxjava3.disposables.CompositeDisposable
 
-class MovieDetailsViewModel : ViewModel() {
+class MovieDetailsViewModel (movieDetailsRepository: MovieDetailsRepository, movieId: Int) : ViewModel() {
 
-    private var popularMoviesLiveData = MutableLiveData<MovieInfo>()
-    val popularMovieList: LiveData<MovieInfo> get() = popularMoviesLiveData
+    private val compositeDisposable = CompositeDisposable()
+
+    val movieDetails: LiveData<MovieDetails> by lazy {
+        movieDetailsRepository.fetchMovieDetails(compositeDisposable, movieId)
+    }
+
+    val networkState: LiveData<NetworkState> by lazy {
+        movieDetailsRepository.getNetworkState()
+    }
 
     override fun onCleared() {
         super.onCleared()
+        compositeDisposable.dispose()
     }
 }
