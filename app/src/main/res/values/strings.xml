@@ -3,4 +3,11 @@
     <string name="release_date_placeholder">Release Date</string>
     <string name="title_placeholder">Title Placeholder</string>
     <string name="description_placeholder">Description Placeholder</string>
+    <string name="runtime_placeholder">Runtime Placeholder</string>
+    <string name="release_placeholder">Release Placeholder</string>
+    <string name="votes_placeholder">Votes Placeholder</string>
+    <string name="tagline_placeholder">Tagline Placeholder</string>
+    <string name="category_placeholder">Category Placeholder</string>
+    <string name="message_placeholder">Message Placeholder</string>
+    <string name="popular">Popular</string>
 </resources>

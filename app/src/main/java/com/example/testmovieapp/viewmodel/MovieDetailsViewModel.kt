@@ -1,11 +1,11 @@
-package com.example.testmovieapp
+package com.example.testmovieapp.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.ViewModel
-import com.example.testmovieapp.data.pojo.MovieDetails
-import com.example.testmovieapp.data.repository.NetworkState
-import com.example.testmovieapp.movie_details.MovieDetailsRepository
-import io.reactivex.rxjava3.disposables.CompositeDisposable
+import com.example.testmovieapp.repository.MovieDetailsRepository
+import com.example.testmovieapp.NetworkState
+import com.example.testmovieapp.pojo.details.MovieDetails
+import io.reactivex.disposables.CompositeDisposable
 
 class MovieDetailsViewModel (movieDetailsRepository: MovieDetailsRepository, movieId: Int) : ViewModel() {
 

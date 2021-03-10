@@ -1,15 +1,17 @@
-package com.example.testmovieapp.data.repository
+package com.example.testmovieapp.datasource
 
 import android.util.Log
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
-import com.example.testmovieapp.data.network.ITmdbApi
-import com.example.testmovieapp.data.pojo.MovieDetails
-import io.reactivex.rxjava3.disposables.CompositeDisposable
-import io.reactivex.rxjava3.schedulers.Schedulers
+import com.example.testmovieapp.BuildConfig
+import com.example.testmovieapp.NetworkState
+import com.example.testmovieapp.network.TMDBapi
+import com.example.testmovieapp.pojo.details.MovieDetails
+import io.reactivex.disposables.CompositeDisposable
+import io.reactivex.schedulers.Schedulers
 import java.lang.Exception
 
-class NetworkDataSource(private val apiService: ITmdbApi, private val compositeDisposable: CompositeDisposable) {
+class NetworkDataSource(private val apiService: TMDBapi, private val compositeDisposable: CompositeDisposable) {
 
     private val _networkState = MutableLiveData<NetworkState>()
     val networkState: LiveData<NetworkState> get() = _networkState
@@ -22,7 +24,7 @@ class NetworkDataSource(private val apiService: ITmdbApi, private val compositeD
 
         try {
             compositeDisposable.add(
-                apiService.getMovieDetails(movieId)
+                apiService.getMovieDetails(movieId, BuildConfig.TMDB_API_KEY)
                     .subscribeOn(Schedulers.io())
                     .subscribe(
                         {
@@ -31,13 +33,13 @@ class NetworkDataSource(private val apiService: ITmdbApi, private val compositeD
                         },
                         {
                             _networkState.postValue(NetworkState.ERROR)
-                            Log.e(javaClass.name,  it.message!!)
+                            Log.e(javaClass.name, it.message!!)
                         }
                     )
             )
 
         } catch (e: Exception) {
-            Log.e(javaClass.name,  e.message!!)
+            Log.e(javaClass.name, e.message!!)
         }
     }
 }

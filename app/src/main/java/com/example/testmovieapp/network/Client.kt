@@ -1,26 +1,26 @@
-package com.example.testmovieapp.data.network
+package com.example.testmovieapp.network
 
 import com.example.testmovieapp.BuildConfig
+import com.example.testmovieapp.Constants
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
+import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
-import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory
+import retrofit2.adapter.rxjava2.RxJava2CallAdapterFactory
 import retrofit2.converter.gson.GsonConverterFactory
 import java.util.concurrent.TimeUnit
 
-object RequestHelper {
+object Client {
 
-
-    private val baseUrl = "https://api.themoviedb.org/3/"
-
+    private val loggingInterceptor = HttpLoggingInterceptor().apply {
+        setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
     private val requestInterceptor = Interceptor { chain ->
-
         val url = chain.request()
-            .url()
+            .url
             .newBuilder()
             .addQueryParameter("api_key", BuildConfig.TMDB_API_KEY)
             .build()
-
         val request = chain.request()
             .newBuilder()
             .url(url)
@@ -30,19 +30,20 @@ object RequestHelper {
     }
 
     private val okHttpClient = OkHttpClient.Builder()
-        .addInterceptor(requestInterceptor)
+//        .addInterceptor(requestInterceptor)
+        .addInterceptor(loggingInterceptor)
         .connectTimeout(60, TimeUnit.SECONDS)
         .build()
 
     private val retrofit = Retrofit.Builder()
         .client(okHttpClient)
-        .baseUrl(baseUrl)
-        .addCallAdapterFactory(RxJava3CallAdapterFactory.create())
+        .baseUrl(Constants.BASE_URL)
+        .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
         .addConverterFactory(GsonConverterFactory.create())
         .build()
-        .create(ITmdbApi::class.java)
+        .create(TMDBapi::class.java)
 
-    fun getClient(): ITmdbApi {
+    fun getClient(): TMDBapi {
         return retrofit
     }
 }
